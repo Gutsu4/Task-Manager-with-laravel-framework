@@ -1,12 +1,11 @@
 import React from 'react';
-import NavBar from '../parts/nav_bar';
-import Form from '../parts/form';
+import LoginForm from '../parts/form';
 
 const Login = () => {
+    document.title = 'Login';
     return (
         <div>
-            <NavBar />
-            <Form />
+            <LoginForm />
         </div>
     );
 };
