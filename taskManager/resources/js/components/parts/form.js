@@ -1,14 +1,30 @@
 import React, { useState } from 'react';
 import { Form, Button, Container } from 'react-bootstrap';
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 function LoginForm() {
   const [userID, setUserID] = useState('');
   const [password, setPassword] = useState('');
+  const navigate = useNavigate();
 
   const handleSubmit = (event) => {
     event.preventDefault();
     console.log('UserID:', userID, 'Password:', password);
-    // TODO: API処理
+
+    axios.post('http://127.0.0.1:8000/api/login', {
+        userId: userID,
+        password: password,
+      })
+      .then(response => {
+        console.log(response.data);
+        navigate('/home');
+      })
+      .catch(error => {
+        console.error('Error:', error.response.data);
+      });
+
+
   };
 
   return (

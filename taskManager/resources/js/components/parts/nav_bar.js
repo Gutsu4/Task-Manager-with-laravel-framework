@@ -7,16 +7,16 @@ const NavBar = () => {
         <nav>
             <ul>
                 <li>
-                    <Link to='/Home'>Home</Link>
+                    <Link to='/home'>Home</Link>
                 </li>
                 <li>
-                    <Link to='/AddTask'>AddTask</Link>
+                    <Link to='/addTask'>AddTask</Link>
                 </li>
                 <li>
-                    <Link to='/TaskDetail'>TaskDetail</Link>
+                    <Link to='/taskDetail'>TaskDetail</Link>
                 </li>
                 <li>
-                    <Link to='/EditTask'>EditTask</Link>
+                    <Link to='/editTask'>EditTask</Link>
                 </li>
                 <li>
                     <Link to='/TaskList'>TaskList</Link>
@@ -25,14 +25,5 @@ const NavBar = () => {
         </nav>
     );
 };
-
-/*
-          <Route path="/" element={<Login />} />
-          <Route path="/Home" element={<Home />} />
-          <Route path="/AddTask" element={<AddTask />} />
-          <Route path="/TaskDetail" element={<TaskDetail />} />
-          <Route path="/EditTask" element={<EditTask />} />
-          <Route path="/TaskList" element={<TaskList />} />
-*/
 
 export default NavBar;
