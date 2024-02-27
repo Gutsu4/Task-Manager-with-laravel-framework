@@ -1,5 +1,5 @@
 import React from 'react';
-import NavBar from '../parts/nav_bar';
+import NavBar from '../parts/navBar';
 import TaskList from '../parts/taskList';
 
 const Home = () => {
