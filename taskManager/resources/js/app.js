@@ -7,7 +7,6 @@ import AddTask from './components/page/AddTask';
 import EditTask from './components/page/EditTask';
 import Home from './components/page/Home';
 import TaskDetail from './components/page/TaskDetail';
-import TaskList from './components/page/TaskList';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
