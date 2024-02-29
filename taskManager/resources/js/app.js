@@ -19,7 +19,6 @@ const App = () => {
           <Route path="/addTask" element={<AddTask />} />
           <Route path="/taskDetail" element={<TaskDetail />} />
           <Route path="/editTask" element={<EditTask />} />
-          <Route path="/taskList" element={<TaskList />} />
         </Routes>
       </Router>
     );

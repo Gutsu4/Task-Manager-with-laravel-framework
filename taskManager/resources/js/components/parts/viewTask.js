@@ -3,7 +3,7 @@ import React from "react";
 function ViewTask(){
     return (
         <div>
-            <h2>HView Task</h2>
+            <h4 class="mb-3 text-secondary">View Task</h4>
         </div>
     );
 

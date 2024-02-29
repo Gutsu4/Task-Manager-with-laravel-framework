@@ -28,7 +28,7 @@ function TaskList() {
 
   return (
     <div>
-      <h2>Tasks List</h2>
+      <h4 class="mb-3 text-secondary">Tasks List</h4>
       {/* Bootstrapテーブルを使用 */}
       <table className="table">
         <thead>
