@@ -15,4 +15,16 @@ class TaskController extends Controller
         // タスクリストをJSON形式で返す
         return response()->json($tasks);
     }
+
+    public function taskById($taskId){
+
+        //タスクをIDで検索
+        $task = Task::find($taskId);
+
+        if (!$task) {
+            return response()->json(['message' => 'Task not found'], 404);
+        }
+
+        return response()->json($task);
+    }
 }
