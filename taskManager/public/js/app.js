@@ -6693,7 +6693,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _parts_navBar__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../parts/navBar */ "./resources/js/components/parts/navBar.js");
 /* harmony import */ var _parts_viewTask__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../parts/viewTask */ "./resources/js/components/parts/viewTask.js");
-/* harmony import */ var _parts_Button__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../parts/Button */ "./resources/js/components/parts/Button.js");
+/* harmony import */ var _parts_button__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../parts/button */ "./resources/js/components/parts/button.js");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 
 
@@ -6710,9 +6710,9 @@ function TaskDetail() {
     console.log("Edit");
   };
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_parts_navBar__WEBPACK_IMPORTED_MODULE_1__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_parts_viewTask__WEBPACK_IMPORTED_MODULE_2__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_parts_Button__WEBPACK_IMPORTED_MODULE_3__.EditButton, {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_parts_navBar__WEBPACK_IMPORTED_MODULE_1__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_parts_viewTask__WEBPACK_IMPORTED_MODULE_2__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_parts_button__WEBPACK_IMPORTED_MODULE_3__.EditButton, {
       onClick: handleEditClick
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_parts_Button__WEBPACK_IMPORTED_MODULE_3__.DeleteButton, {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_parts_button__WEBPACK_IMPORTED_MODULE_3__.DeleteButton, {
       onClick: handleDeleteClick
     })]
   });
@@ -6721,9 +6721,9 @@ function TaskDetail() {
 
 /***/ }),
 
-/***/ "./resources/js/components/parts/Button.js":
+/***/ "./resources/js/components/parts/button.js":
 /*!*************************************************!*\
-  !*** ./resources/js/components/parts/Button.js ***!
+  !*** ./resources/js/components/parts/button.js ***!
   \*************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 

@@ -1,7 +1,7 @@
 import React from "react";
 import NavBar from '../parts/navBar';
 import ViewTask from "../parts/viewTask";
-import {EditButton , DeleteButton} from "../parts/Button";
+import {EditButton , DeleteButton} from "../parts/button";
 
 function TaskDetail(){
     document.title = 'Task Detail';
