@@ -1,5 +1,5 @@
 import React from 'react';
-import LoginForm from '../parts/form';
+import {LoginForm} from '../parts/form';
 
 const Login = () => {
     document.title = 'Login';

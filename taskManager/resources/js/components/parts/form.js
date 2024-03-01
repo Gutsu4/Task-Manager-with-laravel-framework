@@ -3,7 +3,7 @@ import { Form, Button, Container } from 'react-bootstrap';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
-function LoginForm() {
+export function LoginForm() {
   const [userID, setUserID] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
@@ -59,4 +59,12 @@ function LoginForm() {
   );
 }
 
-export default LoginForm;
+export function AddTaskForm(){
+
+    return null;
+}
+
+export function EditTaskForm(){
+
+    return null;
+}
