@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Form, Button, Container } from 'react-bootstrap';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate,useLocation } from 'react-router-dom';
 
 export function LoginForm() {
   const [userID, setUserID] = useState('');
@@ -66,5 +66,73 @@ export function AddTaskForm(){
 
 export function EditTaskForm(){
 
-    return null;
+    const navigate = useNavigate();
+    const location = useLocation();
+    const url = new URLSearchParams(location.search);
+    const taskId = url.get('id');
+    const [task,setTask] = useState({});
+
+    useEffect(() =>{
+        fetchTask(taskId);
+    },[taskId]);
+
+    const fetchTask = async (taskId) => {
+        try{
+            const response = await axios.get(`http://127.0.0.1:8000/api/taskById/${taskId}`);
+            setTask(response.data);
+            console.log(response.data);
+        }catch(error){
+            console.error('タスクの取得に失敗しました:', error);
+        }
+    };
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        try {
+            await axios.put(`http://127.0.0.1:8000/api/taskUpdate/${taskId}`, task);
+            alert('タスクが更新されました');
+            navigate('/home');
+        } catch (error) {
+            console.error('タスクの更新に失敗しました:', error);
+            alert('タスクの更新に失敗しました');
+        }
+    };
+
+
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+        setTask(prevTask => ({
+            ...prevTask,
+            [name]: value
+        }));
+    };
+
+
+    return (
+        <form onSubmit={handleSubmit}>
+          <div className="mb-3">
+            <label htmlFor="taskName" className="form-label">タスク名</label>
+            <input
+              type="text"
+              className="form-control"
+              id="taskName"
+              name="name"
+              value={task.name}
+              onChange={handleChange}
+            />
+          </div>
+          <div className="mb-3">
+            <label htmlFor="taskDetail" className="form-label">詳細</label>
+            <textarea
+              className="form-control"
+              id="taskDetail"
+              name="detail"
+              rows="3"
+              value={task.detail}
+              onChange={handleChange}
+            ></textarea>
+          </div>
+          <button type="submit" className="btn btn-primary">更新</button>
+        </form>
+      );
 }

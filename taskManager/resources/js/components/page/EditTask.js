@@ -1,7 +1,20 @@
 import React from "react";
+import { EditTaskForm } from "../parts/form";
+import { Nav } from "react-bootstrap";
+import NavBar from "../parts/navBar";
 
-const EditTask = () =>{
+function EditTask(){
 
+    const handleSubmit = () => {
+        console.log("変更します");
+    };
+
+    return(
+        <div>
+            <NavBar></NavBar>
+            <EditTaskForm onSubmit={handleSubmit}></EditTaskForm>
+        </div>
+    );
 };
 
 

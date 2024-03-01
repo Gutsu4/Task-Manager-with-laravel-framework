@@ -32,6 +32,8 @@ function TaskDetail(){
 
     const handleEditClick = () => {
         console.log("Edit");
+        //変更フォームの/EditTaskにナビゲートする
+        navigate(`/EditTask?id=${taskId}`);
     };
 
     return (

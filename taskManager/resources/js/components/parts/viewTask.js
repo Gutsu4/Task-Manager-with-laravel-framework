@@ -27,7 +27,6 @@ function ViewTask(){
 
     return (
         <div>
-            <h4 className="mb-3 text-secondary">View Task</h4>
             <table className="table">
             <thead>
             <tr>
