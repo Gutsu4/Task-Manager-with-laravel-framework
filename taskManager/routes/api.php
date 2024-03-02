@@ -29,3 +29,5 @@ Route::get('/taskById/{taskId}', [TaskController::class, 'taskById']);
 Route::delete('/taskDelete/{taskId}', [TaskController::class, 'taskDelete']);
 
 Route::put('/taskUpdate/{taskId}', [TaskController::class, 'taskUpdate']);
+
+Route::post('/addTask',[TaskController::class,'addTask']);

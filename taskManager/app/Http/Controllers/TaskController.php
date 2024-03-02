@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Task; // Taskモデルを使用
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Log;
 
 class TaskController extends Controller
 {
@@ -70,5 +71,32 @@ class TaskController extends Controller
 
         // 更新後のタスクをレスポンスとして返す
         return response()->json($task, 200);
+    }
+
+    public function addTask(Request $request)
+    {
+        Log::info('addTask start');
+        $validator = Validator::make($request->all(), [
+            'name' => 'required|max:255',
+            'detail' => 'required',
+        ]);
+
+        // バリデーションが失敗した場合、エラーレスポンスを返す
+        if ($validator->fails()) {
+            Log::info('validation error');
+            return response()->json($validator->errors(), 400); // 400 Bad Request
+        }
+
+        // タスクの作成
+        $task = Task::create([
+            'name' => $request->name,
+            'detail' => $request->detail,
+            'is_completed' =>0, // デフォルト値を false にする
+            'user_id' =>1,
+        ]);
+
+        Log::info('addTask end');
+        // タスクの保存が成功した場合、タスクデータを JSON 形式で返す
+        return response()->json($task, 201); // 201 Created
     }
 }

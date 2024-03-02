@@ -1,6 +1,5 @@
 import React from "react";
 import { EditTaskForm } from "../parts/form";
-import { Nav } from "react-bootstrap";
 import NavBar from "../parts/navBar";
 
 function EditTask(){

@@ -58,12 +58,6 @@ export function LoginForm() {
     </Container>
   );
 }
-
-export function AddTaskForm(){
-
-    return null;
-}
-
 export function EditTaskForm(){
 
     const navigate = useNavigate();
@@ -111,7 +105,7 @@ export function EditTaskForm(){
     return (
         <form onSubmit={handleSubmit}>
           <div className="mb-3">
-            <label htmlFor="taskName" className="form-label">タスク名</label>
+            <label htmlFor="taskName" className="form-label">Name</label>
             <input
               type="text"
               className="form-control"
@@ -122,7 +116,7 @@ export function EditTaskForm(){
             />
           </div>
           <div className="mb-3">
-            <label htmlFor="taskDetail" className="form-label">詳細</label>
+            <label htmlFor="taskDetail" className="form-label">Detail</label>
             <textarea
               className="form-control"
               id="taskDetail"
@@ -132,7 +126,63 @@ export function EditTaskForm(){
               onChange={handleChange}
             ></textarea>
           </div>
-          <button type="submit" className="btn btn-primary">更新</button>
+          <button type="submit" className="btn btn-primary">Update</button>
         </form>
       );
 }
+
+
+export function AddTaskForm() {
+    const [name, setName] = useState('');
+    const [detail, setDetail] = useState('');
+    const navigate = useNavigate();
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+
+        try {
+            // APIエンドポイントにPOSTリクエストを送信
+            const response = await axios.post('http://127.0.0.1:8000/api/addTask', { name, detail });
+            alert('タスクが追加されました');
+            // フォームをリセット
+            setName('');
+            setDetail('');
+        } catch (error) {
+            console.error('タスクの追加に失敗しました', error);
+            alert('タスクの追加に失敗しました');
+        }
+        console.log('response : ',response);
+        navigate('/home');
+    };
+
+    return (
+        <Container className="mt-5">
+            <h2>Add New Task</h2>
+            <Form onSubmit={handleSubmit}>
+                <Form.Group className="mb-3" controlId="taskName">
+                    <Form.Label>Name</Form.Label>
+                    <Form.Control
+                        type="text"
+                        placeholder="タスク名を入力"
+                        value={name}
+                        onChange={(e) => setName(e.target.value)}
+                    />
+                </Form.Group>
+                <Form.Group className="mb-3" controlId="taskDetail">
+                    <Form.Label>Detail</Form.Label>
+                    <Form.Control
+                        as="textarea"
+                        rows={3}
+                        placeholder="詳細を入力"
+                        value={detail}
+                        onChange={(e) => setDetail(e.target.value)}
+                    />
+                </Form.Group>
+                <Button variant="primary" type="submit">
+                    Submit
+                </Button>
+            </Form>
+        </Container>
+    );
+}
+

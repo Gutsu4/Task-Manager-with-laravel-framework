@@ -6594,8 +6594,19 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _parts_form__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../parts/form */ "./resources/js/components/parts/form.js");
+/* harmony import */ var _parts_navBar__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../parts/navBar */ "./resources/js/components/parts/navBar.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 
-var AddTask = function AddTask() {};
+
+
+
+
+var AddTask = function AddTask() {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_parts_navBar__WEBPACK_IMPORTED_MODULE_2__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_parts_form__WEBPACK_IMPORTED_MODULE_1__.AddTaskForm, {})]
+  });
+};
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (AddTask);
 
 /***/ }),
@@ -6616,7 +6627,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _parts_form__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../parts/form */ "./resources/js/components/parts/form.js");
 /* harmony import */ var _parts_navBar__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../parts/navBar */ "./resources/js/components/parts/navBar.js");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
-
 
 
 
@@ -6935,9 +6945,6 @@ function LoginForm() {
     })
   });
 }
-function AddTaskForm() {
-  return null;
-}
 function EditTaskForm() {
   var navigate = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_3__.useNavigate)();
   var location = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_3__.useLocation)();
@@ -6952,7 +6959,7 @@ function EditTaskForm() {
   }, [taskId]);
   var fetchTask = /*#__PURE__*/function () {
     var _ref = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee(taskId) {
-      var response;
+      var _response;
       return _regeneratorRuntime().wrap(function _callee$(_context) {
         while (1) switch (_context.prev = _context.next) {
           case 0:
@@ -6960,9 +6967,9 @@ function EditTaskForm() {
             _context.next = 3;
             return axios__WEBPACK_IMPORTED_MODULE_1___default().get("http://127.0.0.1:8000/api/taskById/".concat(taskId));
           case 3:
-            response = _context.sent;
-            setTask(response.data);
-            console.log(response.data);
+            _response = _context.sent;
+            setTask(_response.data);
+            console.log(_response.data);
             _context.next = 11;
             break;
           case 8:
@@ -7023,7 +7030,7 @@ function EditTaskForm() {
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("label", {
         htmlFor: "taskName",
         className: "form-label",
-        children: "\u30BF\u30B9\u30AF\u540D"
+        children: "Name"
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
         type: "text",
         className: "form-control",
@@ -7037,7 +7044,7 @@ function EditTaskForm() {
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("label", {
         htmlFor: "taskDetail",
         className: "form-label",
-        children: "\u8A73\u7D30"
+        children: "Detail"
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("textarea", {
         className: "form-control",
         id: "taskDetail",
@@ -7049,7 +7056,97 @@ function EditTaskForm() {
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
       type: "submit",
       className: "btn btn-primary",
-      children: "\u66F4\u65B0"
+      children: "Update"
+    })]
+  });
+}
+function AddTaskForm() {
+  var _useState7 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(''),
+    _useState8 = _slicedToArray(_useState7, 2),
+    name = _useState8[0],
+    setName = _useState8[1];
+  var _useState9 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(''),
+    _useState10 = _slicedToArray(_useState9, 2),
+    detail = _useState10[0],
+    setDetail = _useState10[1];
+  var navigate = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_3__.useNavigate)();
+  var handleSubmit = /*#__PURE__*/function () {
+    var _ref3 = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee3(e) {
+      var _response2;
+      return _regeneratorRuntime().wrap(function _callee3$(_context3) {
+        while (1) switch (_context3.prev = _context3.next) {
+          case 0:
+            e.preventDefault();
+            _context3.prev = 1;
+            _context3.next = 4;
+            return axios__WEBPACK_IMPORTED_MODULE_1___default().post('http://127.0.0.1:8000/api/addTask', {
+              name: name,
+              detail: detail
+            });
+          case 4:
+            _response2 = _context3.sent;
+            alert('タスクが追加されました');
+            // フォームをリセット
+            setName('');
+            setDetail('');
+            _context3.next = 14;
+            break;
+          case 10:
+            _context3.prev = 10;
+            _context3.t0 = _context3["catch"](1);
+            console.error('タスクの追加に失敗しました', _context3.t0);
+            alert('タスクの追加に失敗しました');
+          case 14:
+            console.log('response : ', response);
+            navigate('/home');
+          case 16:
+          case "end":
+            return _context3.stop();
+        }
+      }, _callee3, null, [[1, 10]]);
+    }));
+    return function handleSubmit(_x3) {
+      return _ref3.apply(this, arguments);
+    };
+  }();
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(react_bootstrap__WEBPACK_IMPORTED_MODULE_4__["default"], {
+    className: "mt-5",
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h2", {
+      children: "Add New Task"
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(react_bootstrap__WEBPACK_IMPORTED_MODULE_5__["default"], {
+      onSubmit: handleSubmit,
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(react_bootstrap__WEBPACK_IMPORTED_MODULE_5__["default"].Group, {
+        className: "mb-3",
+        controlId: "taskName",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_5__["default"].Label, {
+          children: "Name"
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_5__["default"].Control, {
+          type: "text",
+          placeholder: "\u30BF\u30B9\u30AF\u540D\u3092\u5165\u529B",
+          value: name,
+          onChange: function onChange(e) {
+            return setName(e.target.value);
+          }
+        })]
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(react_bootstrap__WEBPACK_IMPORTED_MODULE_5__["default"].Group, {
+        className: "mb-3",
+        controlId: "taskDetail",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_5__["default"].Label, {
+          children: "Detail"
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_5__["default"].Control, {
+          as: "textarea",
+          rows: 3,
+          placeholder: "\u8A73\u7D30\u3092\u5165\u529B",
+          value: detail,
+          onChange: function onChange(e) {
+            return setDetail(e.target.value);
+          }
+        })]
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_6__["default"], {
+        variant: "primary",
+        type: "submit",
+        children: "Submit"
+      })]
     })]
   });
 }
